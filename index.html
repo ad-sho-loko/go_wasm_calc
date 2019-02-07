@@ -2,8 +2,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    
-    <!--
+
     <script src="wasm_exec.js"></script>
     <script>      
       const go = new Go();
@@ -11,7 +10,6 @@
         go.run(result.instance);
       });
     </script>
-    -->
 
   </head>
   <body>
@@ -39,8 +37,8 @@
             <td><button class="color-button">-</button></td>
           </tr>
           <tr>
-            <td><button class="normal-button">1</button></td>
-            <td><button class="normal-button">2</button></td>
+            <td><button onClick="print('1');" class="normal-button">1</button></td>
+            <td><button onClick="document.getElementById('result')" class="normal-button">2</button></td>
             <td><button class="normal-button">3</button></td>
             <td><button class="color-button">+</button></td>
           </tr>

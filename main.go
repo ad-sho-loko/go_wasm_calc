@@ -1,13 +1,16 @@
 package main
 
-func subtract(i []js.Value) {
-	js.Global().Set("output", js.ValueOf(i[0].Int()-i[1].Int()))
-	println(js.ValueOf(i[0].Int() - i[1].Int()).String())
+import(
+	"fmt"
+	"syscall/js"
+)
+
+func print(i []js.Value){
+	fmt.Println(i)
 }
 
 func registerCallbacks() {
-	js.Global().Set("add", js.NewCallback(add))
-	js.Global().Set("subtract", js.NewCallback(subtract))
+	js.Global().Set("print", js.NewCallback(print))
 }
 
 func main(){
