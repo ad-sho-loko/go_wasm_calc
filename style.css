@@ -22,8 +22,8 @@ button{
     appearance: none;
 }
 
-/* color-button */
 
+/* color-button */
 .color-button{
     width: 80px;
     height: 80px;
@@ -35,8 +35,19 @@ button{
     background: #0579E6; 
   }
   
-/* normal-button */
+.color-button:active{
+    padding-top:6px;
+    padding-bottom:4px;
+    border:1px solid #334c66;
+    background-color:#69c;
+    color:#e0ebf5;
+    -webkit-box-shadow:inset 0px 0px 8px #334c66;
+    -moz-box-shadow:inset 0px 0px 2px #3a6da0;
+    box-shadow:inset 0px 0px 2px #3a6da0;
+}
 
+
+/* normal-button */
 .normal-button{
     width: 80px;
     height: 80px;
@@ -47,6 +58,18 @@ button{
     color:white;
     background: gray;
   }
+  
+.normal-button:active{
+    padding-top:6px;
+    padding-bottom:4px;
+    border:1px solid #626163;
+    background-color:rgb(143, 147, 151);
+    color:#e0ebf5;
+    -webkit-box-shadow:inset 0px 0px 8px #334c66;
+    -moz-box-shadow:inset 0px 0px 2px #3a6da0;
+    box-shadow:inset 0px 0px 2px #3a6da0;
+}
+
 
 /* reset-button */
 
@@ -60,3 +83,14 @@ button{
     color:white;
     background:  #D70C18;
   }
+
+.reset-button:active{
+    padding-top:6px;
+    padding-bottom:4px;
+    border:1px solid red;
+    background-color:rgb(243, 139, 139);
+    color:#e0ebf5;
+    -webkit-box-shadow:inset 0px 0px 8px #334c66;
+    -moz-box-shadow:inset 0px 0px 2px #3a6da0;
+    box-shadow:inset 0px 0px 2px #3a6da0;
+}  

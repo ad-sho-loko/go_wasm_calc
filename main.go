@@ -1,16 +1,15 @@
 package main
 
 import(
-	"fmt"
 	"syscall/js"
 )
 
-func print(i []js.Value){
-	fmt.Println(i)
+func manipulateDom(i []js.Value){
+	js.Global().Get("document").Call("getElementById", "result").Set("innerHTML", "WebAssembly!")
 }
 
 func registerCallbacks() {
-	js.Global().Set("print", js.NewCallback(print))
+	js.Global().Set("manipulateDom", js.NewCallback(manipulateDom))
 }
 
 func main(){
