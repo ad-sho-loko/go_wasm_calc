@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <!--
+    <script src="wasm_exec.js"></script>
+    <script>      
+      const go = new Go();
+      WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+        go.run(result.instance);
+      });
+    </script>
+    -->
+
+  </head>
+  <body>
+      <table id="calculator">
+        <thead>
+          <tr>
+            <th id="result" class="calc-result" colspan="4">000,000,000</th>  
+          </tr>  
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="3"><button class="reset-button">C</button></td>
+            <td><button class="color-button">÷</button></td>
+          </tr>
+          <tr>
+            <td><button class="normal-button">7</button></td>
+            <td><button class="normal-button">8</button></td>
+            <td><button class="normal-button">9</button></td>
+            <td><button class="color-button">×</button></td>
+          </tr>
+          <tr>
+            <td><button class="normal-button">4</button></td>
+            <td><button class="normal-button">5</button></td>
+            <td><button class="normal-button">6</button></td>
+            <td><button class="color-button">-</button></td>
+          </tr>
+          <tr>
+            <td><button class="normal-button">1</button></td>
+            <td><button class="normal-button">2</button></td>
+            <td><button class="normal-button">3</button></td>
+            <td><button class="color-button">+</button></td>
+          </tr>
+          <tr>
+            <td colspan="3"><button class="normal-button">0</button></td>
+            <td><button class="color-button">=</button></td>
+          </tr>
+        </tbody>
+      </table>
+  </body>
+</html>
