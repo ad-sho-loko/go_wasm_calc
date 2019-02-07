@@ -16,7 +16,7 @@
       <table id="calculator">
         <thead>
           <tr>
-            <th id="result" class="calc-result" colspan="4">000,000,000</th>  
+            <th id="result" class="calc-result" colspan="4">0</th>
           </tr>  
         </thead>
         <tbody>
@@ -25,26 +25,26 @@
             <td><button class="color-button">÷</button></td>
           </tr>
           <tr>
-            <td><button class="normal-button">7</button></td>
-            <td><button class="normal-button">8</button></td>
-            <td><button class="normal-button">9</button></td>
+            <td><button onClick="inputNum('7')" class="normal-button">7</button></td>
+            <td><button onClick="inputNum('8')" class="normal-button">8</button></td>
+            <td><button onClick="inputNum('9')" class="normal-button">9</button></td>
             <td><button class="color-button">×</button></td>
           </tr>
           <tr>
-            <td><button class="normal-button">4</button></td>
-            <td><button class="normal-button">5</button></td>
-            <td><button class="normal-button">6</button></td>
+            <td><button onClick="inputNum('4')" class="normal-button">4</button></td>
+            <td><button onClick="inputNum('5')" class="normal-button">5</button></td>
+            <td><button onClick="inputNum('6')" class="normal-button">6</button></td>
             <td><button class="color-button">-</button></td>
           </tr>
           <tr>
-            <td><button onClick="manipulateDom()" class="normal-button">1</button></td>
-            <td><button onClick="document.getElementById('result')" class="normal-button">2</button></td>
-            <td><button class="normal-button">3</button></td>
-            <td><button class="color-button">+</button></td>
+            <td><button onClick="inputNum('1')" class="normal-button">1</button></td>
+            <td><button onClick="inputNum('2')" class="normal-button">2</button></td>
+            <td><button onClick="inputNum('3')" class="normal-button">3</button></td>
+            <td><button onClick="doPlus()" class="color-button">+</button></td>
           </tr>
           <tr>
-            <td colspan="3"><button class="normal-button">0</button></td>
-            <td><button class="color-button">=</button></td>
+            <td colspan="3"><button onClick="inputNum('0')" class="normal-button">0</button></td>
+            <td><button onClick="doEqual()" class="color-button">=</button></td>
           </tr>
         </tbody>
       </table>
