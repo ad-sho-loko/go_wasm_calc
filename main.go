@@ -27,7 +27,7 @@ const (
 func doOperate(i []js.Value){
 	accumulator += inputtingNum
 	inputtingNum = ""
-	js.Global().Get("document").Call("getElementById", "result").Set("innerHTML", "0")
+	js.Global().Get("document").Call("getElementById", "result").Set("textContent", "0")
 
 	// 演算子ごとに処理する
 	switch i[0].String() {
@@ -64,18 +64,18 @@ func doEqual(i []js.Value){
 		result = int2 / int1
 	}
 
-	js.Global().Get("document").Call("getElementById", "result").Set("innerHTML", result)
+	js.Global().Get("document").Call("getElementById", "result").Set("textContent", result)
 }
 
 func inputNum(i []js.Value){
 	inputtingNum += i[0].String()
-	js.Global().Get("document").Call("getElementById", "result").Set("innerHTML", inputtingNum)
+	js.Global().Get("document").Call("getElementById", "result").Set("textContent", inputtingNum)
 }
 
 func clearNum(i []js.Value){
 	inputtingNum = ""
 	accumulator = ""
-	js.Global().Get("document").Call("getElementById", "result").Set("innerHTML", "0")
+	js.Global().Get("document").Call("getElementById", "result").Set("textContent", "0")
 }
 
 func registerCallbacks() {
