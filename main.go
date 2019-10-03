@@ -1,6 +1,6 @@
 package main
 
-import(
+import (
 	"strconv"
 	"syscall/js"
 )
@@ -24,7 +24,7 @@ const (
 	None
 )
 
-func doOperate(i []js.Value){
+func doOperate(this js.Value, i []js.Value) interface{} {
 	accumulator += inputtingNum
 	inputtingNum = ""
 	js.Global().Get("document").Call("getElementById", "result").Set("textContent", "0")
@@ -42,9 +42,10 @@ func doOperate(i []js.Value){
 	default:
 		operator = None
 	}
+	return nil
 }
 
-func doEqual(i []js.Value){
+func doEqual(this js.Value, i []js.Value) interface{} {
 	// String -> int
 	int1, _ := strconv.Atoi(inputtingNum)
 	int2, _ := strconv.Atoi(accumulator)
@@ -53,7 +54,7 @@ func doEqual(i []js.Value){
 
 	// 演算子ごとに計算する
 	var result int
-	switch operator{
+	switch operator {
 	case Plus:
 		result = int1 + int2
 	case Sub:
@@ -65,27 +66,30 @@ func doEqual(i []js.Value){
 	}
 
 	js.Global().Get("document").Call("getElementById", "result").Set("textContent", result)
+	return nil
 }
 
-func inputNum(i []js.Value){
+func inputNum(this js.Value, i []js.Value) interface{} {
 	inputtingNum += i[0].String()
 	js.Global().Get("document").Call("getElementById", "result").Set("textContent", inputtingNum)
+	return nil
 }
 
-func clearNum(i []js.Value){
+func clearNum(this js.Value, i []js.Value) interface{} {
 	inputtingNum = ""
 	accumulator = ""
 	js.Global().Get("document").Call("getElementById", "result").Set("textContent", "0")
+	return nil
 }
 
 func registerCallbacks() {
-	js.Global().Set("inputNum", js.NewCallback(inputNum))
-	js.Global().Set("doOperate", js.NewCallback(doOperate))
-	js.Global().Set("doEqual", js.NewCallback(doEqual))
-	js.Global().Set("clearNum", js.NewCallback(clearNum))
+	js.Global().Set("inputNum", js.FuncOf(inputNum))
+	js.Global().Set("doOperate", js.FuncOf(doOperate))
+	js.Global().Set("doEqual", js.FuncOf(doEqual))
+	js.Global().Set("clearNum", js.FuncOf(clearNum))
 }
 
-func main(){
+func main() {
 	c := make(chan struct{}, 0)
 	registerCallbacks()
 	<-c
